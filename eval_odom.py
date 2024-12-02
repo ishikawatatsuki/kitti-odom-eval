@@ -19,16 +19,13 @@ parser.add_argument('--seqs',
 args = parser.parse_args()
 
 eval_tool = KittiEvalOdom()
-gt_dir = "dataset/kitti_odom/gt_poses/"
+gt_dir = "/app/data/KITTI/ground_truth"
 result_dir = args.result
 
-continue_flag = input("Evaluate result in {}? [y/n]".format(result_dir))
-if continue_flag == "y":
-    eval_tool.eval(
-        gt_dir,
-        result_dir,
-        alignment=args.align,
-        seqs=args.seqs,
-        )
-else:
-    print("Double check the path!")
+
+eval_tool.eval(
+    gt_dir,
+    result_dir,
+    alignment=args.align,
+    seqs=args.seqs,
+    )
